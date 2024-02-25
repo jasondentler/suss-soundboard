@@ -20,18 +20,25 @@ function getPlaylistForPlayer(player) {
 async function setupPlayerPlaylists() {
     if (!game?.user?.isGM) {
         // Only the GM can create playlists and manage their permissions initially.
+        console.log(`${thisModuleName} determined you are not a GM.`);
         return;
     }
 
+    console.log(`${thisModuleName} found users:`, game.users);
+
     const players = game.users.filter(u => u.character);
+    console.log(`${thisModuleName} found players:`, players);
+
     for (const player of players) {
         try {
             await setupPlayerPlaylist(player);
+            console.log(`${thisModuleName} is done setting up playlist for player.`, player);
         }
         catch (error) {
             console.error(`Error ensuring playlist for ${player?.name || '<unknown>'}:`, error);
         }
     }
+    console.log(`${thisModuleName} is done setting up playlists for players.`);
 }
 
 async function setupPlayerPlaylist(player) {
@@ -79,8 +86,11 @@ async function ensurePlayerHasPermissionsToPlaylist(player, playlist) {
 }
 
 async function remindPlayerOfTracks() {
-    if (!game?.user?.character)
+    if (!game?.user?.character) {
+        // Only users with characters get a playlist.
+        console.log(`${thisModuleName} determined you are not a player.`);
         return;
+    }
 
     const playlist = getPlaylistForPlayer(game.user);
     if (!playlist) {
@@ -107,12 +117,8 @@ async function remindPlayerOfTracks() {
 }
 
 async function onReady() {
-    if (game.user.isGM) {
-        await setupPlayerPlaylists();
-        console.log(`${thisModuleName} is done setting up playlists for players.`);
-    } else {
-        await remindPlayerOfTracks();
-    }
+    await setupPlayerPlaylists();
+    await remindPlayerOfTracks();
 }
 
 Hooks.once('ready', onReady);
