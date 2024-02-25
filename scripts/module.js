@@ -1,4 +1,5 @@
 const thisModuleName = "Suss Soundboard";
+const soundboardOnlyMode = -1;
 
 function htmlEncode(string) {
     const text = document.createTextNode(string);
@@ -81,7 +82,12 @@ async function ensurePlayerHasPermissionsToPlaylist(player, playlist) {
         const newOwnership = { ...originalOwnership };
         newOwnership[player.id] = 3;
         await playlist.update({"ownership": newOwnership});
-        ui.notifications.info(`${thisModuleName} granted ${player.name} control of playlist ${playlist.name}.`);
+        await ui.notifications.info(`${thisModuleName} granted ${player.name} control of playlist ${playlist.name}.`);
+    }
+
+    if (playlist.mode != soundboardOnlyMode) {
+        await playlist.update({"mode": soundboardOnlyMode});
+        await ui.notifications.info(`${thisModuleName} put playlist ${playlist.name} in Soundboard Only mode.`);
     }
 }
 
