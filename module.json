@@ -1,16 +1,19 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
-  "version": "#{VERSION}#",
+  "id": "suss-soundboard",
+  "title": "Suss Soundboard",
+  "description": "A player soundboard module",
+  "version": "0.0.1",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
-    "minimum": 10,
-    "verified": 10,
-    "maximum": 11
+    "minimum": 11,
+    "verified": 11
   },
   "authors": [
+    {
+      "name": "Jason Dentler",
+      "url": "https://jasondentler.com"
+    },
     {
       "name": "The League of Extraordinary FVTT Developers",
       "url": "https://github.com/League-of-Foundry-Developers",
@@ -24,22 +27,9 @@
   "esmodules": [
     "scripts/module.js"
   ],
-  "scripts": [
-    "scripts/lib/lib.js"
-  ],
-  "styles": [
-    "styles/module.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
+  "url": "https://github.com/jasondentler/suss-soundboard",
+  "manifest": "https://github.com/jasondentler/suss-soundboard/releases/latest/download/module.json",
+  "download": "https://github.com/jasondentler/suss-soundboard/releases/download/v0.0.1/module.zip",
   "license": "LICENSE",
   "readme": "README.md",
   "media": [
