@@ -63,7 +63,7 @@ async function createPlaylistForPlayer(player) {
         playing: false
     }
     
-    playlist = await Playlist.create(playlistData);
+    const playlist = await Playlist.create(playlistData);
 
     if (!playlist) {
         ui.notifications.error(`Failed to create the playlist ${playlistName}.`);
