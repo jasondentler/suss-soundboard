@@ -63,14 +63,19 @@ async function createPlaylistForPlayer(player) {
         return;
     }
 
+    ui.notifications.info(`${thisModuleName} created playlist ${playlistName} for ${playerName}.`);
+
     return playlist;
 }
 
 async function ensurePlayerHasPermissionsToPlaylist(player, playlist) {
     const originalOwnership = playlist.ownership;
-    const newOwnership = { ...originalOwnership };
-    newOwnership[player.id] = 3;
-    await playlist.update({"ownership": newOwnership});
+    if (!originalOwnership[player.id] || originalOwnership[player.id] != 3) {
+        const newOwnership = { ...originalOwnership };
+        newOwnership[player.id] = 3;
+        await playlist.update({"ownership": newOwnership});
+        ui.notifications.info(`${thisModuleName} granted ${player.name} control of playlist ${playlist.name}.`);
+    }
 }
 
 async function remindPlayerOfTracks() {
@@ -104,6 +109,7 @@ async function remindPlayerOfTracks() {
 async function onReady() {
     if (game.user.isGM) {
         await setupPlayerPlaylists();
+        console.log(`${thisModuleName} is done setting up playlists for players.`);
     } else {
         await remindPlayerOfTracks();
     }
