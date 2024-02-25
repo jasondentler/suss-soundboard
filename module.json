@@ -2,7 +2,7 @@
   "id": "suss-soundboard",
   "title": "Suss Soundboard",
   "description": "A player soundboard module",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "library": "false",
   "manifestPlusVersion": "1.2.0",
   "compatibility": {
@@ -29,7 +29,7 @@
   ],
   "url": "https://github.com/jasondentler/suss-soundboard",
   "manifest": "https://github.com/jasondentler/suss-soundboard/releases/latest/download/module.json",
-  "download": "https://github.com/jasondentler/suss-soundboard/releases/download/v0.0.5/module.zip",
+  "download": "https://github.com/jasondentler/suss-soundboard/releases/download/v1.0.0/module.zip",
   "license": "LICENSE",
   "readme": "README.md",
   "media": [
