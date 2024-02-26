@@ -1,0 +1,26 @@
+{
+  "name": "suss-soundboard",
+  "version": "1.0.0",
+  "description": "A player soundboard module for Foundry VTT",
+  "main": "scripts/module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasondentler/suss-soundboard.git"
+  },
+  "author": "Jason Dentler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasondentler/suss-soundboard/issues"
+  },
+  "homepage": "https://github.com/jasondentler/suss-soundboard#readme",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
